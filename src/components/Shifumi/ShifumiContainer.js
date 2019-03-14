@@ -2,25 +2,63 @@ import React, { Component } from 'react';
 import Shifumi from './Shifumi';
 
 class ShifumiContainer extends Component {
-  state = {
-    score: 0,
-  };
+    state = {
+        myself:0,
+        computer:0   
+    };
 
-  // Conception développer le jeu pierre feuille ciseau
-  // 3 boutons ou bien un select et un bouton Play
 
-  // Afficher un score, premier arrivé à 3 a gagné.
-  // ['pierre', 'feuille', 'ciseaux'];
-  // Math.random() / index ?
+    play(choice){
+        const comput= Math.floor(Math.random() * 3);
+        if(choice == comput){
+            return;
+        }
 
-  // play(){}
-  // handleClick = event => {}
+        if(choice == 0 && comput == 1){
+            this.setState(prevState => ({
+                computer: prevState.computer + 1,
+        }));
+        }
+        if(choice == 0 && comput == 2){
+            this.setState(prevState => ({
+                myself: prevState.myself + 1,
+        }));
+        }
 
-  render() {
-    const { score } = this.state;
+        if(choice == 1 && comput == 0){
+            this.setState(prevState => ({
+                myself: prevState.myself + 1,
+        }));
+        }
+        if(choice == 1 && comput == 2){
+          this.setState(prevState => ({
+              computer: prevState.computer + 1,
+        }));
+        }
+        if(choice == 2 && comput == 0){
+        this.setState(prevState => ({
+            computer: prevState.computer + 1,
+        }));
+        }
+        if(choice == 2 && comput == 1){
+        this.setState(prevState => ({
+            myself: prevState.myself + 1,
+        }));
+        }
+                
+    }
 
-    // Passer handleClick en props à <Shifumi />
-    return <Shifumi score={score} />;
+
+    handleClick =event =>{
+        this.play(event.currentTarget.value);
+        
+        
+    };
+    
+    render() {
+        const {myself, computer} =this.state;
+        
+      return <Shifumi  myself={myself} computer={computer} play={this.handleClick}/>;
   }
 }
 

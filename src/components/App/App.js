@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import CounterContainer from '../Counter/CounterContainer';
-import Hangman from '../Hangman/Hangman';
-import Shifumi from '../Shifumi/Shifumi';
+import HangmanContainer from '../Hangman/Hangman';
+import ShifumiContainer from '../Shifumi/ShifumiContainer';
 import Home from '../Home/Home';
 
 const App = () => (
@@ -27,8 +27,8 @@ const App = () => (
       <div className="App">
         <Route exact path="/" component={Home} />
         <Route path="/counter" component={CounterContainer} />
-        <Route path="/hangman" component={Hangman} />
-        <Route path="/shifumi" component={Shifumi} />
+        <Route path="/hangman" component={HangmanContainer} />
+        <Route path="/shifumi" component={ShifumiContainer} />
       </div>
     </div>
   </Router>
