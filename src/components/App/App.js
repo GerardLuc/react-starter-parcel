@@ -4,6 +4,7 @@ import CounterContainer from '../Counter/CounterContainer';
 import Hangman from '../Hangman/Hangman';
 import Shifumi from '../Shifumi/Shifumi';
 import Home from '../Home/Home';
+import ShifumiContainer from '../Shifumi/ShifumiContainer';
 
 const App = () => (
   <Router>
@@ -28,7 +29,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/counter" component={CounterContainer} />
         <Route path="/hangman" component={Hangman} />
-        <Route path="/shifumi" component={Shifumi} />
+        <Route path="/shifumi" component={ShifumiContainer} />
       </div>
     </div>
   </Router>
