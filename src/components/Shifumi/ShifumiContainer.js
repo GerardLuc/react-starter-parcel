@@ -14,7 +14,7 @@ class ShifumiContainer extends Component {
   // Math.random() / index ?
 
   // play(){}
-  // handleClick = event => {}
+  handleClick = event => {}
 
   render() {
     const { score } = this.state;

@@ -4,6 +4,7 @@ import CounterContainer from '../Counter/CounterContainer';
 import Hangman from '../Hangman/Hangman';
 import Shifumi from '../Shifumi/Shifumi';
 import Home from '../Home/Home';
+import ShifumiContainer from '../Shifumi/ShifumiContainer'
 
 const App = () => (
   <Router>

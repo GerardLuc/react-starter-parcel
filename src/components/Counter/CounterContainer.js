@@ -19,21 +19,21 @@ class CounterContainer extends Component {
   handleClick = event => {
     const { counter } = this.state;
     const operation = parseInt(event.currentTarget.value);
-    // We need to parseInt in order to change type of the value (default is string, not number)
+    
     switch (operation) {
-      case 1: // 1 equal to +
+      case 1:
         this.setState(prevState => ({
           counter: prevState.counter + 1,
         }));
         break;
-      case 2: // 2 equal to -
+      case 2:
         if (counter === 0) return;
         this.setState(prevState => ({
           counter: prevState.counter - 1,
         }));
         break;
       default:
-        // default equal to reset
+
         this.setState({
           counter: 0,
         });
