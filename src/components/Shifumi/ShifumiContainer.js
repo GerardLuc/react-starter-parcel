@@ -22,59 +22,70 @@ class ShifumiContainer extends Component {
     console.log('Joueur a choisi ' + choixJoueur);
     console.log('Ordi a choisi ' + choixOrdi);
     
-    switch (choixJoueur) {
-      case 'reset': //Si l'utilisateur clique sur reset
+    if (this.state.scoreJoueur < 3 && this.state.scoreOrdi < 3) { //Si les deux scores sont inférieurs a 3
+      switch (this.play(choixJoueur, choixOrdi)) { //Appelle le résultat de play()
+        case 'joueur' : //Le joueur gagne
+          this.setState(prevState => ({
+            scoreJoueur: prevState.scoreJoueur + 1,
+          }));
+          alert('Player wins!')
+          break;
+        case 'ordi' : //L'ordi gagne
+          this.setState(prevState => ({
+            scoreOrdi: prevState.scoreOrdi + 1,
+          }));
+          alert('Computer wins!')
+          break;
+        case 'egalite' : //Égalité
+          alert('Tie!')
+          break;
+        default :
+          return;
+      }
+    } else { //Si l'un des deux scores a atteint 3
+      if (choixJoueur == 'reset') { //Et que l'utilisateur a cliqué sur reset
         this.setState({
           scoreJoueur: 0,
           scoreOrdi: 0,
         });
-        break;
-      default: //Si l'utilisateur fait un autre choix
-        if (this.state.scoreJoueur < 3 && this.state.scoreOrdi < 3) {
-          if (choixJoueur == choixOrdi) {
-            alert('Tie!')
-            break;
-          } else if (this.play(choixJoueur, choixOrdi) == 'gagnantJoueur') {
-            this.setState(prevState => ({
-              scoreJoueur: prevState.scoreJoueur + 1,
-            }));
-            alert('Player wins!')
-            break;
-          } else if (this.play(choixJoueur, choixOrdi) == 'gagnantOrdi') {
-            this.setState(prevState => ({
-              scoreOrdi: prevState.scoreOrdi + 1,
-            }));
-            alert('Computer wins!')
-            break;
-          }
-        } else {
-          alert('Game over, please click reset to play again.')
-        }
+      } else { //S'il n'a pas cliqué sur reset
+        alert('Game over, please click reset to play again.')
+      }
     }
   };
 
-  play(choixJoueur, choixOrdi) {
-    if (choixJoueur == 'pierre'){
-      if (choixOrdi == 'feuille') {
-        return 'gagnantOrdi';
-      } else {
-        return 'gagnantJoueur';
-      }
-    } else if (choixJoueur == 'feuille'){
-      if (choixOrdi == 'pierre') {
-        return 'gagnantJoueur';
-      } else {
-        return 'gagnantOrdi';
-      }
-    } else {
-      if (choixOrdi == 'pierre') {
-        return 'gagnantOrdi';
-      } else {
-        return 'gagnantJoueur';
-      }
+  play(choixJoueur, choixOrdi) { //Comparer les deux choix et retourner le gagnant
+    switch (choixJoueur) { 
+      case 'pierre' :
+        switch (choixOrdi) {
+          case 'feuille' :
+            return 'ordi';
+          case 'ciseaux' :
+            return 'joueur';
+          default :
+            return 'egalite';
+        }
+      case 'feuille' :
+        switch (choixOrdi) {
+          case 'ciseaux' :
+            return 'ordi';
+          case 'pierre' :
+            return 'joueur';
+          default :
+            return 'egalite';
+        }
+      default :
+        switch (choixOrdi) {
+          case 'pierre' :
+            return 'ordi';
+          case 'feuille' :
+            return 'joueur';
+          default :
+            return 'egalite';
+        }
     }
   }
-
+  
   render() {
     const { scoreJoueur, scoreOrdi } = this.state;
     return <Shifumi scoreJoueur={scoreJoueur} scoreOrdi={scoreOrdi} play={this.handleClick} />;
