@@ -5,7 +5,7 @@ const Shifoumi = ({play, myself, computer}) => (
   <h1>SHIFOUMI</h1>
  
   <div>
-      <span>Score du joueur {myself} </span>
+      <span>Score du joueur {myself} </span><br/>
       <span>Score ordinateur {computer} </span>
   </div>
   
