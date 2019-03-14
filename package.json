@@ -7,8 +7,7 @@
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html --out-dir build/ --public-url ./",
     "test": "jest --watchAll",
-    "coverage": "test -- --coverage",
-    "precommit": "lint-staged"
+    "coverage": "test -- --coverage"
   },
   "keywords": [
     "react",
@@ -19,7 +18,7 @@
   "author": "@silvestrevivo",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^9.1.0",
+    "autoprefixer": "^9.4.10",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -41,7 +40,11 @@
     "lint-staged": "^6.1.1",
     "node-sass": "^4.9.3",
     "prettier": "^1.14.2",
-    "react-test-renderer": "^16.2.0"
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-hot-loader": "^4.8.0",
+    "react-test-renderer": "^16.2.0",
+    "sass": "^1.17.2"
   },
   "lint-staged": {
     "src/**/*.js": [
@@ -59,9 +62,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
-    "normalize.css": "^8.0.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.2",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
     "react-dom": "^16.4.2",
     "react-hot-loader": "^4.3.4",
     "react-redux": "^5.0.7",
