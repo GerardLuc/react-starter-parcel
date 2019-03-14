@@ -1,0 +1,16 @@
+body{
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100vh;
+}
+
+.container{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
+
+@keyframes Logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
